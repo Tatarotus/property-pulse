@@ -1,12 +1,9 @@
-import Link from "next/link";
-
-function Home() {
+function PropertyHome() {
   return (
     <main>
-      <h1>Property Pulse</h1>
-      <Link href="/properties">View Properties</Link>
+      <h1>Property Home</h1>
     </main>
   );
 }
 
-export default Home;
+export default PropertyHome;

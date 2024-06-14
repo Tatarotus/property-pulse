@@ -1,16 +1,9 @@
-import Link from "next/link";
-
 const Properties = () => {
-  return  (
-    <>
-      <h1>List all properties</h1>
-
-      <Link href="/">Go Home</Link>
-
-    </>
-
-
-  )
+  return (
+    <div>
+      <h1>Properties</h1>
+    </div>
+  );
 };
 
-export default Properties
+export default Properties;
