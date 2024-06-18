@@ -1,9 +1,15 @@
-function PropertyHome() {
+import Hero from "@/components/Hero";
+import InfoBoxes from "@/components/InfoBoxes";
+import Footer from "@/components/Footer";
+
+function HomePage() {
   return (
     <main>
-      <h1>Property Home</h1>
+      <Hero />
+      <InfoBoxes  />
+      <Footer />
     </main>
   );
 }
 
-export default PropertyHome;
+export default HomePage;

@@ -1,0 +1,212 @@
+[
+  {
+    "_id": 1,
+    "owner": 1,
+    "name": "Bostom Commons Retreat",
+    "type": "apartment",
+    "description": "This is a beautiful apartment located near the commons. It is a 2 bedroom apartment with a full kitchen and bathroom. It is available for weekly or monthly rentals.",
+    "location": {
+      "street": "123 Main St",
+      "city": "Bostom",
+      "state": "MA",
+      "zip": "12345"
+    },
+    "beds": 2,
+    "baths": 1,
+    "square_feet": 1500,
+    "amenities": ["wifi", "kitchen", "heating", "laundry", "gym"],
+    "rates": {
+      "weekly": 1000,
+      "monthly": 1200
+    },
+    "seller_info": {
+      "name": "John Smith",
+      "email": "bK5vN@example.com",
+      "phone": "555-555-5555"
+    },
+    "images": ["a1.jpeg", "a2.jpeg"],
+    "isFeatured": false,
+    "createdAt": "2022-01-01T00:00:00.000Z",
+    "updatedAt": "2022-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": 2,
+    "owner": 2,
+    "name": "Luxury Beachfront Villa",
+    "type": "villa",
+    "description": "A luxurious villa right on the beach, perfect for family vacations. Spacious rooms, private pool, and stunning ocean views.",
+    "location": {
+      "street": "456 Ocean Blvd",
+      "city": "Beachtown",
+      "state": "CA",
+      "zip": "54321"
+    },
+    "beds": 4,
+    "baths": 3,
+    "square_feet": 3000,
+    "amenities": ["wifi", "pool", "beach access", "gourmet kitchen", "gym", "spa"],
+    "rates": {
+      "weekly": 5000,
+      "monthly": 18000
+    },
+    "seller_info": {
+      "name": "Emily Johnson",
+      "email": "eJoh@example.com",
+      "phone": "555-123-4567"
+    },
+    "images": ["b1.jpeg", "b2.jpeg"],
+    "isFeatured": true,
+    "createdAt": "2022-01-02T00:00:00.000Z",
+    "updatedAt": "2022-01-02T00:00:00.000Z"
+  },
+  {
+    "_id": 3,
+    "owner": 3,
+    "name": "Mountain Chalet Retreat",
+    "type": "chalet",
+    "description": "Escape to this cozy mountain chalet with breathtaking views. Perfect for skiing holidays or summer retreats.",
+    "location": {
+      "street": "789 Pine Rd",
+      "city": "Mountainville",
+      "state": "CO",
+      "zip": "67890"
+    },
+    "beds": 3,
+    "baths": 2,
+    "square_feet": 2000,
+    "amenities": ["wifi", "fireplace", "ski-in/ski-out", "hot tub", "sauna"],
+    "rates": {
+      "weekly": 2500,
+      "monthly": 8000
+    },
+    "seller_info": {
+      "name": "Michael Brown",
+      "email": "mBro@example.com",
+      "phone": "555-987-6543"
+    },
+    "images": ["c1.jpeg", "c2.jpeg"],
+    "isFeatured": false,
+    "createdAt": "2022-01-03T00:00:00.000Z",
+    "updatedAt": "2022-01-03T00:00:00.000Z"
+  },
+  {
+    "_id": 4,
+    "owner": 4,
+    "name": "Downtown Loft",
+    "type": "apartment",
+    "description": "Modern loft in the heart of downtown. Close to restaurants, theaters, and nightlife.",
+    "location": {
+      "street": "10 Center St",
+      "city": "Metropolis",
+      "state": "NY",
+      "zip": "45678"
+    },
+    "beds": 1,
+    "baths": 1,
+    "square_feet": 1000,
+    "amenities": ["wifi", "gym", "rooftop terrace"],
+    "rates": {
+      "weekly": 1500,
+      "monthly": 5000
+    },
+    "seller_info": {
+      "name": "Sarah Davis",
+      "email": "sDav@example.com",
+      "phone": "555-234-5678"
+    },
+    "images": ["d1.jpeg", "d2.jpeg"],
+    "isFeatured": true,
+    "createdAt": "2022-01-04T00:00:00.000Z",
+    "updatedAt": "2022-01-04T00:00:00.000Z"
+  },
+  {
+    "_id": 5,
+    "owner": 5,
+    "name": "Lakefront Cabin",
+    "type": "cabin",
+    "description": "Charming cabin on the shores of a tranquil lake. Ideal for fishing, kayaking, and relaxation.",
+    "location": {
+      "street": "456 Lakeview Dr",
+      "city": "Laketown",
+      "state": "WA",
+      "zip": "56789"
+    },
+    "beds": 2,
+    "baths": 1,
+    "square_feet": 1200,
+    "amenities": ["wifi", "fireplace", "dock", "canoes"],
+    "rates": {
+      "weekly": 1200,
+      "monthly": 4000
+    },
+    "seller_info": {
+      "name": "David Wilson",
+      "email": "dWil@example.com",
+      "phone": "555-345-6789"
+    },
+    "images": ["f1.jpeg", "f2.jpeg"],
+    "isFeatured": false,
+    "createdAt": "2022-01-05T00:00:00.000Z",
+    "updatedAt": "2022-01-05T00:00:00.000Z"
+  },
+  {
+    "_id": 6,
+    "owner": 6,
+    "name": "City View Penthouse",
+    "type": "penthouse",
+    "description": "Luxurious penthouse with stunning city views. Ideal for corporate rentals or special occasions.",
+    "location": {
+      "street": "789 High St",
+      "city": "Skyline",
+      "state": "CA",
+      "zip": "23456"
+    },
+    "beds": 3,
+    "baths": 2,
+    "square_feet": 2500,
+    "amenities": ["wifi", "pool", "gourmet kitchen", "gym", "spa", "concierge"],
+    "rates": {
+      "weekly": 3000,
+      "monthly": 10000
+    },
+    "seller_info": {
+      "name": "Jessica Lee",
+      "email": "jLee@example.com",
+      "phone": "555-456-7890"
+    },
+    "images": ["g1.jpeg", "g2.jpeg"],
+    "isFeatured": true,
+    "createdAt": "2022-01-06T00:00:00.000Z",
+    "updatedAt": "2022-01-06T00:00:00.000Z"
+  },
+  {
+    "_id": 7,
+    "owner": 7,
+    "name": "Country Farmhouse",
+    "type": "house",
+    "description": "Quaint farmhouse surrounded by rolling hills and gardens. Perfect for a peaceful retreat.",
+    "location": {
+      "street": "101 Farm Rd",
+      "city": "Countryville",
+      "state": "TX",
+      "zip": "34567"
+    },
+    "beds": 4,
+    "baths": 2,
+    "square_feet": 1800,
+    "amenities": ["wifi", "garden", "fireplace", "pet friendly"],
+    "rates": {
+      "weekly": 1800,
+      "monthly": 6000
+    },
+    "seller_info": {
+      "name": "Daniel White",
+      "email": "dWhi@example.com",
+      "phone": "555-567-8901"
+    },
+    "images": ["h1.jpeg", "h2.jpeg"],
+    "isFeatured": false,
+    "createdAt": "2022-01-01T00:00:00.000Z",
+    "updatedAt": "2022-01-01T00:00:00.000Z"
+  }
+]
