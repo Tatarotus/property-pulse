@@ -1,6 +1,5 @@
 [
   {
-    "_id": 1,
     "owner": 1,
     "name": "Bostom Commons Retreat",
     "type": "apartment",
@@ -30,7 +29,6 @@
     "updatedAt": "2022-01-01T00:00:00.000Z"
   },
   {
-    "_id": 2,
     "owner": 2,
     "name": "Luxury Beachfront Villa",
     "type": "villa",
@@ -60,7 +58,6 @@
     "updatedAt": "2022-01-02T00:00:00.000Z"
   },
   {
-    "_id": 3,
     "owner": 3,
     "name": "Mountain Chalet Retreat",
     "type": "chalet",
@@ -90,7 +87,6 @@
     "updatedAt": "2022-01-03T00:00:00.000Z"
   },
   {
-    "_id": 4,
     "owner": 4,
     "name": "Downtown Loft",
     "type": "apartment",
@@ -120,7 +116,6 @@
     "updatedAt": "2022-01-04T00:00:00.000Z"
   },
   {
-    "_id": 5,
     "owner": 5,
     "name": "Lakefront Cabin",
     "type": "cabin",
@@ -150,7 +145,6 @@
     "updatedAt": "2022-01-05T00:00:00.000Z"
   },
   {
-    "_id": 6,
     "owner": 6,
     "name": "City View Penthouse",
     "type": "penthouse",
@@ -180,7 +174,6 @@
     "updatedAt": "2022-01-06T00:00:00.000Z"
   },
   {
-    "_id": 7,
     "owner": 7,
     "name": "Country Farmhouse",
     "type": "house",
