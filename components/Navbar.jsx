@@ -1,17 +1,27 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FaGoogle } from "react-icons/fa";
+import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 import logo from "@/assets/images/gemini_logo.jpeg";
 import profileDefault from "@/assets/images/gemini_profile.jpeg";
 
 const Navbar = () => {
+  const { data: session } = useSession();
+  const profileImage = session?.user?.image || profileDefault;
   const [mobileMenu, setMobileMenu] = useState(false);
   const [profileMenu, setProfileMenu] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [providers, setProviders] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      const providers = await getProviders();
+      setProviders(providers);
+    })();
+  }, []);
 
   const pathname = usePathname();
   return (
@@ -71,7 +81,7 @@ const Navbar = () => {
                 >
                   Properties
                 </Link>
-                {isLoggedIn && (
+                {session && (
                   <Link
                     href="/properties/add"
                     className={`${pathname === "/properties/add" ? "bg-black" : ""} text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
@@ -84,21 +94,26 @@ const Navbar = () => {
           </div>
 
           {/* <!-- Right Side Menu (Logged Out) --> */}
-          {!isLoggedIn && (
+          {!session && (
             <div className="hidden md:block md:ml-6">
               <div className="flex items-center">
-                <button
-                  className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-                  onClick={() => setIsLoggedIn(true)}
-                >
-                  <FaGoogle className="mr-2" />
-                  <span>Login or Register</span>
-                </button>
+                {providers &&
+                  Object.values(providers).map((provider) => (
+                    <button
+                      key={provider.name}
+                      type="button"
+                      className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                      onClick={() => signIn(provider.id)}
+                    >
+                      <FaGoogle className="mr-2" />
+                      <span>Login or Register</span>
+                    </button>
+                  ))}
               </div>
             </div>
           )}
           {/* <!-- Right Side Menu (Logged In) --> */}
-          {isLoggedIn && (
+          {session && (
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0">
               <a href="messages.html" className="relative group">
                 <button
@@ -142,7 +157,9 @@ const Navbar = () => {
                     <span className="sr-only">Open user menu</span>
                     <Image
                       className="h-8 w-8 rounded-full"
-                      src={profileDefault}
+                      src={profileImage}
+                      width={32}
+                      height={32}
                       alt=""
                     />
                   </button>
@@ -177,9 +194,8 @@ const Navbar = () => {
                   </a>
                   <Link
                     href="/"
-                    onClick={() => ( 
-                      setIsLoggedIn(false),
-                      setProfileMenu((prev) => !prev)
+                    onClick={() => (
+                      signOut(), setProfileMenu((prev) => !prev)
                     )}
                     className="block px-4 py-2 text-sm text-gray-700"
                     role="menuitem"
@@ -211,7 +227,7 @@ const Navbar = () => {
             >
               Properties
             </Link>
-            {isLoggedIn && (
+            {session && (
               <Link
                 href="/properties/add"
                 onClick={() => setLoggedIn(true)}
@@ -220,14 +236,19 @@ const Navbar = () => {
                 Add Property
               </Link>
             )}
-            {!isLoggedIn && (
-              <button
-                className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 my-4"
-                onClick={() => setIsLoggedIn(true)}
-              >
-                <span>Login or Register</span>
-              </button>
-            )}
+            {!session &&
+              providers &&
+              Object.values(providers).map((provider) => (
+                <button
+                  key={provider.name}
+                  type="button"
+                  className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  onClick={() => signIn(provider.id)}
+                >
+                  <FaGoogle className="mr-2" />
+                  <span>Login or Register</span>
+                </button>
+              ))}
           </div>
         </div>
       )}
