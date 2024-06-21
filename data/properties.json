@@ -1,6 +1,6 @@
 [
   {
-    "owner": 1,
+    "owner": "667381ed5e722beab5b8603c",
     "name": "Bostom Commons Retreat",
     "type": "apartment",
     "description": "This is a beautiful apartment located near the commons. It is a 2 bedroom apartment with a full kitchen and bathroom. It is available for weekly or monthly rentals.",
@@ -23,13 +23,13 @@
       "email": "bK5vN@example.com",
       "phone": "555-555-5555"
     },
-    "images": ["a1.jpeg", "a2.jpeg"],
+    "images": ["https://res.cloudinary.com/dljajhm2a/image/upload/v1718932476/h2_admvkb.jpg","https://res.cloudinary.com/dljajhm2a/image/upload/v1718932476/d2_wkqbpr.jpg"],
     "isFeatured": false,
     "createdAt": "2022-01-01T00:00:00.000Z",
     "updatedAt": "2022-01-01T00:00:00.000Z"
   },
   {
-    "owner": 2,
+    "owner": "667381ed5e722beab5b8603c",
     "name": "Luxury Beachfront Villa",
     "type": "villa",
     "description": "A luxurious villa right on the beach, perfect for family vacations. Spacious rooms, private pool, and stunning ocean views.",
@@ -52,13 +52,12 @@
       "email": "eJoh@example.com",
       "phone": "555-123-4567"
     },
-    "images": ["b1.jpeg", "b2.jpeg"],
+    "images": ["https://res.cloudinary.com/dljajhm2a/image/upload/v1718932468/b2_zttz12.jpg", "https://res.cloudinary.com/dljajhm2a/image/upload/v1718932468/h1_ykmlkc.jpg", "https://res.cloudinary.com/dljajhm2a/image/upload/v1718932467/c2_f6oqjj.jpg"],
     "isFeatured": true,
     "createdAt": "2022-01-02T00:00:00.000Z",
     "updatedAt": "2022-01-02T00:00:00.000Z"
   },
   {
-    "owner": 3,
     "name": "Mountain Chalet Retreat",
     "type": "chalet",
     "description": "Escape to this cozy mountain chalet with breathtaking views. Perfect for skiing holidays or summer retreats.",
@@ -81,13 +80,13 @@
       "email": "mBro@example.com",
       "phone": "555-987-6543"
     },
-    "images": ["c1.jpeg", "c2.jpeg"],
+    "images": ["https://res.cloudinary.com/dljajhm2a/image/upload/v1718932467/c2_f6oqjj.jpg", "https://res.cloudinary.com/dljajhm2a/image/upload/v1718932467/g2_mhdbac.jpg", "https://res.cloudinary.com/dljajhm2a/image/upload/v1718932467/f2_m1l2bb.jpg"],
     "isFeatured": false,
     "createdAt": "2022-01-03T00:00:00.000Z",
     "updatedAt": "2022-01-03T00:00:00.000Z"
   },
   {
-    "owner": 4,
+    "owner": "667381ed5e722beab5b8603c",
     "name": "Downtown Loft",
     "type": "apartment",
     "description": "Modern loft in the heart of downtown. Close to restaurants, theaters, and nightlife.",
@@ -110,13 +109,13 @@
       "email": "sDav@example.com",
       "phone": "555-234-5678"
     },
-    "images": ["d1.jpeg", "d2.jpeg"],
+    "images": ["https://res.cloudinary.com/dljajhm2a/image/upload/v1718932467/g1_tremos.jpg", "https://res.cloudinary.com/dljajhm2a/image/upload/v1718932467/f1_keqzuw.jpg"],
     "isFeatured": true,
     "createdAt": "2022-01-04T00:00:00.000Z",
     "updatedAt": "2022-01-04T00:00:00.000Z"
   },
   {
-    "owner": 5,
+    "owner": "66737a7c1853530e0e961f42",
     "name": "Lakefront Cabin",
     "type": "cabin",
     "description": "Charming cabin on the shores of a tranquil lake. Ideal for fishing, kayaking, and relaxation.",
@@ -139,13 +138,13 @@
       "email": "dWil@example.com",
       "phone": "555-345-6789"
     },
-    "images": ["f1.jpeg", "f2.jpeg"],
+    "images": ["https://res.cloudinary.com/dljajhm2a/image/upload/v1718932466/a2_rz5g5g.jpg", "https://res.cloudinary.com/dljajhm2a/image/upload/v1718932466/e1_bqxxhc.jpg", "https://res.cloudinary.com/dljajhm2a/image/upload/v1718932466/d1_saghtl.jpg"],
     "isFeatured": false,
     "createdAt": "2022-01-05T00:00:00.000Z",
     "updatedAt": "2022-01-05T00:00:00.000Z"
   },
   {
-    "owner": 6,
+    "owner": "66737a7c1853530e0e961f42",
     "name": "City View Penthouse",
     "type": "penthouse",
     "description": "Luxurious penthouse with stunning city views. Ideal for corporate rentals or special occasions.",
@@ -168,13 +167,13 @@
       "email": "jLee@example.com",
       "phone": "555-456-7890"
     },
-    "images": ["g1.jpeg", "g2.jpeg"],
+    "images": ["https://res.cloudinary.com/dljajhm2a/image/upload/v1718932466/c1_z4uvlm.jpg", "https://res.cloudinary.com/dljajhm2a/image/upload/v1718932466/b1_jflk9t.jpg"],
     "isFeatured": true,
     "createdAt": "2022-01-06T00:00:00.000Z",
     "updatedAt": "2022-01-06T00:00:00.000Z"
   },
   {
-    "owner": 7,
+    "owner": "66737a7c1853530e0e961f42",
     "name": "Country Farmhouse",
     "type": "house",
     "description": "Quaint farmhouse surrounded by rolling hills and gardens. Perfect for a peaceful retreat.",
@@ -197,7 +196,7 @@
       "email": "dWhi@example.com",
       "phone": "555-567-8901"
     },
-    "images": ["h1.jpeg", "h2.jpeg"],
+    "images": ["https://res.cloudinary.com/dljajhm2a/image/upload/v1718932466/a1_log2h3.jpg", "https://res.cloudinary.com/dljajhm2a/image/upload/v1718927132/propertypulse/izzs0tgo2lslzf5znefs.jpg"],
     "isFeatured": false,
     "createdAt": "2022-01-01T00:00:00.000Z",
     "updatedAt": "2022-01-01T00:00:00.000Z"

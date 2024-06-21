@@ -9,17 +9,17 @@ const PropertyAddForm = () => {
     location: {
       street: "",
       city: "Test City",
-      state: " Test State",
+      state: "Test State",
       zip: "12345",
     },
     beds: "3",
     baths: "2",
     square_feet: "1000",
-    amenities: ['wifi'],
+    amenities: [],
     rates: {
       weekly_rate: "1000",
       monthly_rate: "10000",
-      daily_rate: "100",
+      nightly_rate: "100",
     },
     seller_info: {
       name: "Test Name",
@@ -29,21 +29,73 @@ const PropertyAddForm = () => {
     images: [],
   });
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    console.log(name, value);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    // If the field is a nested property (e.g., rates.weekly),
+    // update it correctly using spread and object destructuring.
+    if (name.includes(".")) {
+      const [outerKey, innerKey] = name.split(".");
+
+      setFields((prevFields) => ({
+        ...prevFields,
+        [outerKey]: {
+          ...prevFields[outerKey],
+          [innerKey]: value,
+        },
+      }));
+    } else {
+      // If it's a top-level property, update it directly.
+      setFields((prevFields) => ({
+        ...prevFields,
+        [name]: value,
+      }));
+    }
   };
-  const handleImageChange = (event) => {
-    const { name, value } = event.target;
-    console.log(name, value);
+  const handleImageChange = (e) => {
+    const { files } = e.target;
+
+    // Clone the current images array
+    const updatedImages = [...fields.images];
+
+    // Add the new files to the array
+    for (const file of files) {
+      updatedImages.push(file);
+    }
+
+    // Update the state with the updated array of images
+    setFields((prevFields) => ({
+      ...prevFields,
+      images: updatedImages,
+    }));
   };
-  const handleAmenityChange = (event) => {
-    const { name, checked } = event.target;
-    console.log(name, checked);
+
+  const handleAmenitiesChange = (e) => {
+    const { value, checked } = e.target;
+
+    // Clone the current amenities array
+    const updatedAmenities = [...fields.amenities];
+
+    if (checked) {
+      // If the checkbox is checked, add the value to the array
+      updatedAmenities.push(value);
+    } else {
+      // If the checkbox is unchecked, remove the value from the array
+      const index = updatedAmenities.indexOf(value);
+      if (index !== -1) {
+        updatedAmenities.splice(index, 1);
+      }
+    }
+
+    // Update the state with the updated array of amenities
+    setFields((prevFields) => ({
+      ...prevFields,
+      amenities: updatedAmenities,
+    }));
   };
 
   return (
-    <form>
+    <form action="/api/properties" method="POST" encType="multipart/form-data">
       <h2 className="text-3xl text-center font-semibold mb-6">Add Property</h2>
       <div className="mb-4">
         <label
@@ -53,8 +105,8 @@ const PropertyAddForm = () => {
           Property Type
         </label>
         <select
-          id="property_type"
-          name="property_type"
+          id="type"
+          name="type"
           className="border rounded w-full py-2 px-3"
           required
           value={fields.type}
@@ -203,7 +255,7 @@ const PropertyAddForm = () => {
               value="Wifi"
               className="mr-2"
               checked={fields.amenities.includes("Wifi")}
-              onChange={handleAmenityChange}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor="amenity_wifi">Wifi</label>
           </div>
@@ -215,7 +267,7 @@ const PropertyAddForm = () => {
               value="Full Kitchen"
               className="mr-2"
               checked={fields.amenities.includes("Full Kitchen")}
-              onChange={handleAmenityChange}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor="amenity_kitchen">Full kitchen</label>
           </div>
@@ -227,7 +279,7 @@ const PropertyAddForm = () => {
               value="Washer & Dryer"
               className="mr-2"
               checked={fields.amenities.includes("Washer & Dryer")}
-              onChange={handleAmenityChange}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor="amenity_washer_dryer">Washer & Dryer</label>
           </div>
@@ -239,7 +291,7 @@ const PropertyAddForm = () => {
               value="Free Parking"
               className="mr-2"
               checked={fields.amenities.includes("Free Parking")}
-              onChange={handleAmenityChange}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor="amenity_free_parking">Free Parking</label>
           </div>
@@ -251,7 +303,7 @@ const PropertyAddForm = () => {
               value="Swimming Pool"
               className="mr-2"
               checked={fields.amenities.includes("Swimming Pool")}
-              onChange={handleAmenityChange}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor="amenity_pool">Swimming Pool</label>
           </div>
@@ -263,7 +315,7 @@ const PropertyAddForm = () => {
               value="Hot Tub"
               className="mr-2"
               checked={fields.amenities.includes("Hot Tub")}
-              onChange={handleAmenityChange}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor="amenity_hot_tub">Hot Tub</label>
           </div>
@@ -275,7 +327,7 @@ const PropertyAddForm = () => {
               value="24/7 Security"
               className="mr-2"
               checked={fields.amenities.includes("24/7 Security")}
-              onChange={handleAmenityChange}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor="amenity_24_7_security">24/7 Security</label>
           </div>
@@ -287,7 +339,7 @@ const PropertyAddForm = () => {
               value="Wheelchair Accessible"
               className="mr-2"
               checked={fields.amenities.includes("Wheelchair Accessible")}
-              onChange={handleAmenityChange}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor="amenity_wheelchair_accessible">
               Wheelchair Accessible
@@ -301,7 +353,7 @@ const PropertyAddForm = () => {
               value="Elevator Access"
               className="mr-2"
               checked={fields.amenities.includes("Elevator Access")}
-              onChange={handleAmenityChange}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor="amenity_elevator_access">Elevator Access</label>
           </div>
@@ -313,7 +365,7 @@ const PropertyAddForm = () => {
               value="Dishwasher"
               className="mr-2"
               checked={fields.amenities.includes("Dishwasher")}
-              onChange={handleAmenityChange}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor="amenity_dishwasher">Dishwasher</label>
           </div>
@@ -325,7 +377,7 @@ const PropertyAddForm = () => {
               value="Gym/Fitness Center"
               className="mr-2"
               checked={fields.amenities.includes("Gym/Fitness Center")}
-              onChange={handleAmenityChange}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor="amenity_gym_fitness_center">
               Gym/Fitness Center
@@ -339,7 +391,7 @@ const PropertyAddForm = () => {
               value="Air Conditioning"
               className="mr-2"
               checked={fields.amenities.includes("Air Conditioning")}
-              onChange={handleAmenityChange}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor="amenity_air_conditioning">Air Conditioning</label>
           </div>
@@ -351,7 +403,7 @@ const PropertyAddForm = () => {
               value="Balcony/Patio"
               className="mr-2"
               checked={fields.amenities.includes("Balcony/Patio")}
-              onChange={handleAmenityChange}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor="amenity_balcony_patio">Balcony/Patio</label>
           </div>
@@ -363,7 +415,7 @@ const PropertyAddForm = () => {
               value="Smart TV"
               className="mr-2"
               checked={fields.amenities.includes("Smart TV")}
-              onChange={handleAmenityChange}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor="amenity_smart_tv">Smart TV</label>
           </div>
@@ -375,7 +427,7 @@ const PropertyAddForm = () => {
               value="Coffee Maker"
               className="mr-2"
               checked={fields.amenities.includes("Coffee Maker")}
-              onChange={handleAmenityChange}
+              onChange={handleAmenitiesChange}
             />
             <label htmlFor="amenity_coffee_maker">Coffee Maker</label>
           </div>
@@ -439,7 +491,7 @@ const PropertyAddForm = () => {
         <input
           type="text"
           id="seller_name"
-          name="seller_info.name."
+          name="seller_info.name"
           className="border rounded w-full py-2 px-3"
           placeholder="Name"
           value={fields.seller_info.name}

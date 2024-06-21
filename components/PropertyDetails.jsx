@@ -1,3 +1,5 @@
+import PropertyImages from "@/components/PropertyImages"
+
 import {
   FaBed,
   FaBath,
