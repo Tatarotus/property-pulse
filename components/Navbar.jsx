@@ -168,21 +168,21 @@ const Navbar = () => {
                 {/* <!-- Profile dropdown --> */}
                 <div
                   id="user-menu"
-                  className={`${profileMenu ? "" : "hidden"} origin-top-right absolute right-0 mt-2 w-48 rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
+                  className={`${profileMenu ? "" : "hidden"} z-10 origin-top-right absolute right-0 mt-2 w-48 rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
                   role="menu"
                   aria-orientation="vertical"
                   aria-labelledby="user-menu-button"
                   tabIndex="-1"
                 >
-                  <a
-                    href="/profile.html"
+                  <Link
+                    href="/profile"
                     className="block px-4 py-2 text-sm text-gray-700"
                     role="menuitem"
                     tabIndex="-1"
                     id="user-menu-item-0"
                   >
                     Your Profile
-                  </a>
+                  </Link>
                   <a
                     href="saved-properties.html"
                     className="block px-4 py-2 text-sm text-gray-700"
@@ -194,9 +194,7 @@ const Navbar = () => {
                   </a>
                   <Link
                     href="/"
-                    onClick={() => (
-                      signOut(), setProfileMenu((prev) => !prev)
-                    )}
+                    onClick={() => (signOut(), setProfileMenu((prev) => !prev))}
                     className="block px-4 py-2 text-sm text-gray-700"
                     role="menuitem"
                     tabIndex="-1"
@@ -230,7 +228,6 @@ const Navbar = () => {
             {session && (
               <Link
                 href="/properties/add"
-                onClick={() => setLoggedIn(true)}
                 className={`${pathname === "/properties/add" ? "bg-black text-white" : ""} block rounded-md px-3 py-2 text-base font-medium`}
               >
                 Add Property
