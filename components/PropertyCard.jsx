@@ -27,11 +27,11 @@ const PropertyCard = ({ property }) => {
       <Image
         src={property.images[0]}
         alt=""
-        width="0"
-        height="0"
+        width={0}
+        height={0}
         sizes="100vw"
         className="w-full h-64 rounded-t-xl"
-        priority={0}
+        priority={1}
       />
       <div className="p-4">
         <div className="text-left md:text-center lg:text-left mb-6">

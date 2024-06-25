@@ -183,15 +183,15 @@ const Navbar = () => {
                   >
                     Your Profile
                   </Link>
-                  <a
-                    href="saved-properties.html"
+                  <Link
+                    href="/properties/saved"
                     className="block px-4 py-2 text-sm text-gray-700"
                     role="menuitem"
                     tabIndex="-1"
                     id="user-menu-item-2"
                   >
                     Saved Properties
-                  </a>
+                  </Link>
                   <Link
                     href="/"
                     onClick={() => (signOut(), setProfileMenu((prev) => !prev))}

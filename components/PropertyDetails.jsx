@@ -4,11 +4,7 @@ import {
   FaRulerCombined,
   FaTimes,
   FaCheck,
-  FaPaperPlane,
-  FaBookmark,
-  FaShare,
   FaMapMarker,
-  FaArrowLeft,
 } from "react-icons/fa";
 
 import PropertyMap from "@/components/PropertyMap";

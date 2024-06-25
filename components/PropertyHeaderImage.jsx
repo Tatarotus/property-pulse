@@ -12,7 +12,7 @@ const PropertyHeaderImage = ({ image }) => {
             width={0}
             height={0}
             sizes="100vw"
-            priority={true}
+            priority={0}
           />
         </div>
       </div>
