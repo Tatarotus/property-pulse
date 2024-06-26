@@ -68,7 +68,7 @@ const Property = () => {
                 <aside className="space-y-4">
                   <div>
                     <PropertyBookmarkButton  property={property} />
-                    <ShareButtons />
+                    <ShareButtons  property={property} />
                   </div>
 
                   <PropertyContactForm />
