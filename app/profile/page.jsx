@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import profileDefault from "@/assets/images/gemini_profile.jpeg";
-import {toast} from 'react-toastify'
+import { toast } from "react-toastify";
 
 const ProfilePage = () => {
   const { data: session } = useSession();
@@ -63,11 +63,8 @@ const ProfilePage = () => {
         );
         setProperties(updatedProperties);
         toast.success("Property Deleted Successfully");
-        toast.info
       } else {
-
         toast.error("Failed to delete property");
-        toast.
       }
     } catch (error) {
       console.log(error);
