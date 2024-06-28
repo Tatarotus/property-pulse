@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { FaPaperPlane } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const PropertyContactForm = ({ property }) => {
   const [name, setName] = useState("");
@@ -9,17 +10,48 @@ const PropertyContactForm = ({ property }) => {
   const [phone, setPhone] = useState("");
   const [wasSubmited, setWasSubmited] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
       name,
       email,
       message,
       phone,
-      recipient: property.owner,
-      property: property._id,
+      recipientId: property.owner,
+      propertyId: property._id,
     };
-    console.log(data);
+    try {
+      const res = await fetch("/api/messages", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const { message } = await res.json();
+
+      if (res.status === 200) {
+        toast.success(message);
+        setWasSubmited(true);
+      } else if (res.status === 400 || res.status === 401) {
+        toast.error(message);
+      } else {
+        toast.error(message);
+      }
+    } catch (err) {
+      console.log(err);
+      toast.error("Something went wrong");
+    } finally {
+      setName("");
+      setEmail("");
+      setMessage("");
+      setPhone("");
+
+      setTimeout(() => {
+        setWasSubmited(false);
+      }, 5500);
+    }
   };
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
