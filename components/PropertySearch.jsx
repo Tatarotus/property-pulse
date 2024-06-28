@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-const PropertySearch = ({ loading, setLoading }) => {
+const PropertySearch = ({ setLoading }) => {
   const [location, setLocation] = useState("");
   const [propertyType, setPropertyType] = useState("All");
 
@@ -16,7 +16,7 @@ const PropertySearch = ({ loading, setLoading }) => {
       const query = `?location=${location}&propertyType=${propertyType}`;
       router.push(`/properties/search-results${query}`);
     }
-   return () => setLoading(true);
+    return () => setLoading(true);
   };
   return (
     <form
