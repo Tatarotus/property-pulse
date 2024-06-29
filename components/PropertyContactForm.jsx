@@ -2,8 +2,10 @@
 import { useState } from "react";
 import { FaPaperPlane } from "react-icons/fa";
 import { toast } from "react-toastify";
+import { useSession } from "next-auth/react";
 
 const PropertyContactForm = ({ property }) => {
+  const { data: session } = useSession();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -56,7 +58,9 @@ const PropertyContactForm = ({ property }) => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h3 className="text-xl font-bold mb-6">Contact Property Manager</h3>
-      {wasSubmited ? (
+      {!session ? (
+        <p>You must be logged in to contact the property manager</p>
+      ) : wasSubmited ? (
         <p className="text-green-500 mb-4">
           Your message was been sent successfully!
         </p>
