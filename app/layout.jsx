@@ -1,8 +1,9 @@
 import "@/assets/styles/global.css";
 import AuthProvider from "@/components/AuthProvider";
 import Navbar from "@/components/Navbar.jsx";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { GlobalProvider } from "@/context/globalContex";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const metadata = {
   title: "Property Pulse | Find the perfect rental",
@@ -12,16 +13,18 @@ export const metadata = {
 
 function MainLayout({ children }) {
   return (
-    <AuthProvider>
-      <html lang="en">
-        <head />
-        <body>
-          <Navbar />
-          {children}
-          <ToastContainer />
-        </body>
-      </html>
-    </AuthProvider>
+    <GlobalProvider>
+      <AuthProvider>
+        <html lang="en">
+          <head />
+          <body>
+            <Navbar />
+            {children}
+            <ToastContainer />
+          </body>
+        </html>
+      </AuthProvider>
+    </GlobalProvider>
   );
 }
 
