@@ -3,6 +3,31 @@ import Message from "@/models/Messages";
 import { getSessionUser } from "@/utils/getSessionUser";
 
 export const dynamic = "force-dynamic";
+// GET /api/Messages
+export async function GET() {
+  try {
+    await connectDB();
+    const sessionUser = await getSessionUser();
+
+    if (!sessionUser || !sessionUser.user) {
+      return new Response(JSON.stringify({ message: "Not logged in" }), {
+        status: 401,
+      });
+    }
+
+    const { userId } = sessionUser;
+    const messages = await Message.find({ recipient: userId })
+      .populate("sender", "username")
+      .populate("property", "name");
+
+    return new Response(JSON.stringify(messages), { status: 200 });
+  } catch (err) {
+    console.log(err);
+    return new Response(JSON.stringify({ message: "Something went wrong" }), {
+      status: 500,
+    });
+  }
+}
 
 // POST /api/messages
 export async function POST(request) {
