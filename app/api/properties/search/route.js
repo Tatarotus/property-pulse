@@ -4,11 +4,11 @@ import Property from "@/models/Property";
 //GET /api/properties/search
 
 export const GET = async (request) => {
+  const location = request.nextUrl.searchParams.get("location");
+  const propertyType = request.nextUrl.searchParams.get("propertyType");
+
   try {
     await connectDB();
-
-    const location = request.nextUrl.searchParams.get("location");
-    const propertyType = request.nextUrl.searchParams.get("propertyType");
 
     // Create a regex pattern for location search
     const locationPattern = new RegExp(location, "i");

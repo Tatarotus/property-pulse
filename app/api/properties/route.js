@@ -3,6 +3,8 @@ import Property from "@/models/Property";
 import { getSessionUser } from "@/utils/getSessionUser";
 import cloudinary from "@/config/cloudinary";
 
+export const dynamic = "force-dynamic";
+
 // api/properties
 export const GET = async (request) => {
   const page = request.nextUrl.searchParams.get("page") || 1;
