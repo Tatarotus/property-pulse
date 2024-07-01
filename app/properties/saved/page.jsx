@@ -19,7 +19,7 @@ const SavedPropertiesPage = () => {
           const data = await res.json();
           setProperties(data);
           // Sort the properties by create date
-          properties.sort(
+          data.sort(
             (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
           );
         } else {
