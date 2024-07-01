@@ -1,36 +1,173 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PropertyPulse
 
-## Getting Started
+PropertyPulse is a NextJS-based project specializing in off-market real estate investment opportunities. The goal is to make finding and closing on investment or rental properties straightforward and hassle-free. You can explore properties, or get in touch with their owner for more details.
 
-First, run the development server:
+## Table of Contents
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Features](#features)
+- [Scripts](#scripts)
+- [Dependencies](#dependencies)
+- [Dev Dependencies](#dev-dependencies)
+- [License](#license)
+
+## Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-username/property-pulse.git
+   cd property-pulse
+```
+ 
+1. **Install dependencies:** 
+
+```bash
+npm install
+```
+## Configuration 
+ 
+1. **Environment Variables:** 
+Create an `.env` file in the root of the project and add your environment variables. Refer to the `env.example` file for required variables.
+ 
+2. **PostCSS Configuration:** 
+The PostCSS configuration is managed in `postcss.config.mjs`:
+
+```js
+/** @type {import('postcss-load-config').Config} */
+const config = {
+  plugins: {
+    tailwindcss: {},
+  },
+};
+
+export default config;
+```
+ 
+3. **NextJS Configuration:** 
+The NextJS configuration can be found in `next.config.mjs`:
+
+```js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "**",
+      },
+    ],
+  },
+};
+
+export default nextConfig;
+```
+ 
+4. **JS Configuration:** 
+The JS configuration is managed in `jsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./*"]
+    }
+  }
+}
+```
+
+## Usage 
+
+To start the development server, run:
+
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build the project for production:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+npm run build
+```
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+Start the production server:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+npm run start
+```
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Features 
+ 
+- **Off-Market Property Listings:**  Browse exclusive off-market properties.
+   
+- **TailwindCSS Integration:**  Stylish UI with TailwindCSS.
+ 
+- **Map Integration:**  View property locations with Mapbox and react-map-gl.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **MongoDB Atlas**: Your data is secure in the cloud.
+
+## Scripts 
+ 
+- `dev`: Starts the development server.
+ 
+- `build`: Builds the application for production.
+ 
+- `start`: Starts the production server.
+ 
+- `lint`: Lints the codebase.
+
+## Dependencies 
+ 
+- `cloudinary`
+ 
+- `mapbox-gl`
+ 
+- `mongoose`
+ 
+- `next`
+ 
+- `next-auth`
+ 
+- `node-fetch`
+ 
+- `node-geocoder`
+ 
+- `photoswipe`
+ 
+- `react`
+ 
+- `react-dom`
+ 
+- `react-geocode`
+ 
+- `react-icons`
+ 
+- `react-map-gl`
+ 
+- `react-photoswipe-gallery`
+ 
+- `react-share`
+ 
+- `react-spinners`
+ 
+- `react-toastify`
+
+## Dev Dependencies 
+ 
+- `postcss`
+ 
+- `tailwindcss`
+
+## License 
+This project is licensed under the MIT License. See the [LICENSE]()  file for details.
