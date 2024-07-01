@@ -18,7 +18,17 @@ const Message = ({ message }) => {
         const { read } = await res.json();
         setIsRead(read);
         setCount((prevCount) => (read ? prevCount - 1 : prevCount + 1));
-        read ? toast.success("Marked as read") : toast.success("Marked as new");
+        read
+          ? toast.success("Marked as read!", {
+              autoClose: 2000,
+              hideProgressBar: true,
+              draggable: false,
+            })
+          : toast.success("Marked as new!", {
+              autoClose: 2000,
+              hideProgressBar: true,
+              draggable: false,
+            });
       }
     } catch (err) {
       console.log(err);
