@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar.jsx";
 import { GlobalProvider } from "@/context/globalContex";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import 'photoswipe/dist/photoswipe.css';
 
 export const metadata = {
   title: "Property Pulse | Find the perfect rental",
