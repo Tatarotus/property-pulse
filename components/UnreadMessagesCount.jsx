@@ -8,7 +8,6 @@ const UnreadMessagesCount = () => {
     (async function () {
       try {
         const res = await fetch("/api/messages/unread-count");
-        console.log(res);
 
         if (res.status === 200) {
           const data = await res.json();
