@@ -1,11 +1,11 @@
 import PropertyCard from "@/components/PropertyCard";
 import Link from "next/link";
-import {fetchProperties} from "@/utils/request";
-
+import { fetchProperties } from "@/utils/request";
 
 const HomeProperties = async () => {
   const data = await fetchProperties();
-  const recentProperties = await data.properties.sort(() => Math.random()).slice(0, 3);
+  const recentProperties =
+    (await data?.properties?.sort(() => Math.random()).slice(0, 3)) || [];
 
   return (
     <>
