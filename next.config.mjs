@@ -14,15 +14,6 @@ const nextConfig = {
       },
     ],
   },
-  generateStaticParams: async function (
-    defaultPathMap,
-    { dev, dir, outDir, distDir, buildId }
-  ) {
-    return {
-      "/": { page: "/" },
-      // Add other paths if needed
-    };
-  },
 };
 
 export default nextConfig;
